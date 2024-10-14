@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Cars Philippines - Contacts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        .map-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 80px;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info h2 {
+            color: #0057B8;
+            margin-bottom: 10px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        @media (max-width: 767px) {
+            .map-container, .contact-info {
+                padding: 10px;
+            }
+            #map {
+                height: 300px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-content p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <img src="fordnavbar.png" alt="Ford Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="lineup.html">Lineup</a></li>
+                <li><a href="about-ford.html">About</a></li>
+            </ul>
+            <div class="nav-menu">
+                <button class="menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>Find Ford Philippines service centers and our main office</p>
+            </div>
+        </section>
+        <section class="map-container">
+            <h2>Ford Philippines Service Centers</h2>
+            <div id="map"></div>
+        </section>
+        <section class="contact-info">
+            <h2>Ford Philippines Main Office</h2>
+            <p><strong>Address:</strong> 32nd Street corner Bonifacio Boulevard, Bonifacio Global City, Taguig, 1634 Metro Manila, Philippines</p>
+            <p><strong>Email:</strong> fordcustomerservice@ford.com</p>
+            <p><strong>Phone:</strong> +63 (2) 8866-9408</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="fordnavbar.png" alt="Ford Logo" width="140" height="60">
+                <p>&copy; 2024 Ford Philippines. All rights reserved.</p>
+            </div>
+            <div class="footer-center">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="contacts.html">CONTACTS</a></li>
+                    <li><a href="lineup.html">LINEUP</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <div class="social-media-links">
+                    <h3>Follow us on social media</h3>
+                    <div class="social-media-links-container">
+                        <div class="social-media-link">
+                            <a href="https://www.facebook.com/FordPhilippines/" target="_blank">
+                                <img src="https://www.facebook.com/favicon.ico" alt="Facebook" width="20" height="20">
+                                Facebook
+                            </a>
+                        </div>
+                        <div class="social-media-link">
+                            <a href="https://x.com/fordphilippines" target="_blank">
+                                <img src="https://twitter.com/favicon.ico" alt="Twitter" width="20" height="20">
+                                Twitter
+                            </a>
+                        </div>
+                        <div class="social-media-link">
+                            <a href="https://www.instagram.com/fordphilippines/?hl=en" target="_blank">
+                                <img src="grammm.png" alt="Instagram" width="20" height="20">
+                                Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+          </div>
+        </div>
+</footer>
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.querySelector('.menu-button');
+        const navLinks = document.querySelector('.nav-links');
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Initialize the map
+        function initMap() {
+            const map = L.map('map').setView([14.5995, 120.9842], 11);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: ['a', 'b', 'c']
+            }).addTo(map);
+
+            const serviceCenters = [
+                {name: "Ford Global City", lat: 14.5504, lon: 121.0489},
+                {name: "Ford Alabang", lat: 14.4237, lon: 121.0240},
+                {name: "Ford EDSA", lat: 14.5550, lon: 121.0374},
+                {name: "Ford Makati", lat: 14.5540, lon: 121.0247},
+                {name: "Ford North EDSA", lat: 14.6679, lon: 121.0277},
+                {name: "Ford Pampanga", lat: 15.054370, lon: 120.711900}
+            ];
+
+            serviceCenters.forEach(function(center) {
+                L.marker([center.lat, center.lon])
+                    .addTo(map)
+                    .bindPopup(center.name);
+            });
+
+            // Handle map resize
+            function resizeMap() {
+                map.invalidateSize();
+            }
+
+            // Trigger map resize on window resize
+            window.addEventListener('resize', resizeMap);
+
+            // Trigger initial resize after a short delay to ensure proper rendering
+            setTimeout(resizeMap, 250);
+        }
+
+        // Initialize the map when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>

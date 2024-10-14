@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Ranger - Performance and Specifications</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+         .section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: #0057B8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #performance p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        #specifications ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        #specifications li {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        @media screen and (min-width: 768px) {
+            .section {
+                padding: 60px 40px;
+            }
+
+            .section h2 {
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+
+            #performance p {
+                font-size: 18px;
+            }
+
+            #specifications ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            #specifications li {
+                padding: 20px;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .section {
+                padding: 80px 60px;
+            }
+
+            #specifications ul {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .mustang-hero {
+            background-image: url('rangerhero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .mustang-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .mustang-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .mustang-hero-content h1 {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #0057B8;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #003d82;
+        }
+        @media (max-width: 768px) {
+            .mustang-hero-content h1 {
+                font-size: 48px;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <img src="fordnavbar.png" alt="Ford Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="lineup.html">Lineup</a></li>
+                <li><a href="about-ford.html">About</a></li>
+            </ul>
+            <div class="nav-menu">
+                <button class="menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="mustang-hero">
+            <div class="mustang-hero-content">
+                <h1 div class="h1-mustang">Ford Ranger</h1>
+                <a href="quotation.html" class="cta-button">Get Quotation</a>
+            </div>
+        </section>
+        
+        <section id="performance" class="section">
+            <h2>Performance</h2>
+            <p>The Ford Ranger is a versatile midsize pickup truck that offers a blend of rugged durability, 
+                off-road capabilities, and practicality. Its capable off-road performance allows it to tackle 
+                challenging terrain with ease, thanks to its available four-wheel drive, terrain management systems, 
+                and high ground clearance. Whether you're exploring remote trails or navigating through muddy 
+                conditions, the Ranger is equipped to handle whatever comes your way. </p>
+        </section>
+        
+        <section id="specifications" class="section">
+            <h2>Specifications</h2>
+            <ul>
+                <li>Engine: The Ranger is available with a 2.3L EcoBoost four-cylinder engine or a 3.0L V6 diesel engine.</li>
+                <li>Transmission: A 10-speed automatic transmission is standard.</li>
+                <li>Payload Capacity: The Ranger can carry up to 1,620 pounds of payload, depending on the configuration.</li>
+                <li>Towing Capacity: The Ranger can tow up to 7,500 pounds, depending on the configuration.</li>
+                <li>Fuel Economy: Fuel efficiency varies depending on the engine and trim level, 
+                    but the Ranger offers competitive fuel economy for a pickup truck.</li>
+                <li>Dimensions: The Ranger is available in various cab and bed configurations to suit different needs.</li>
+                <li>Safety Features: The Ranger comes standard with a range of safety features, 
+                    including automatic emergency braking, lane departure warning, and blind spot monitoring.</li>    
+            </ul>
+        </section>
+        
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="rangerfrontview.jpg" alt="Ford Ranger Front View" onclick="openFullscreen(this.src)">
+                <img src="rangersideview.jpg" alt="Ford Ranger Side View" onclick="openFullscreen(this.src)">
+                <img src="rangerinterior.jpg" alt="Ford Ranger Interior" onclick="openFullscreen(this.src)">
+                <img src="rangerrearview.jpg" alt="Ford Ranger Rear View" onclick="openFullscreen(this.src)">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="fordnavbar.png" alt="Ford Logo" width="140" height="60">
+                <p>&copy; 2024 Ford Philippines. All rights reserved.</p>
+            </div>
+            <div class="footer-center">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="contacts.html">CONTACTS</a></li>
+                    <li><a href="lineup.html">LINEUP</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <div class="social-media-links">
+                    <h3>Follow us on social media</h3>
+                    <div class="social-media-links-container">
+                        <div class="social-media-link">
+                            <a href="https://www.facebook.com/FordPhilippines/" target="_blank">
+                                <img src="https://www.facebook.com/favicon.ico" alt="Facebook" width="20" height="20">
+                                Facebook
+                            </a>
+                        </div>
+                        <div class="social-media-link">
+                            <a href="https://x.com/fordphilippines" target="_blank">
+                                <img src="https://twitter.com/favicon.ico" alt="Twitter" width="20" height="20">
+                                Twitter
+                            </a>
+                        </div>
+                        <div class="social-media-link">
+                            <a href="https://www.instagram.com/fordphilippines/?hl=en" target="_blank">
+                                <img src="grammm.png" alt="Instagram" width="20" height="20">
+                                Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+          </div>
+        </div>
+</footer>
+<div class="fullscreen-overlay" onclick="closeFullscreen()">
+    <img class="fullscreen-image" src="" alt="Fullscreen image">
+    <span class="close-button">&times;</span>
+</div>
+
+<script>
+    function openFullscreen(imgSrc) {
+        const overlay = document.querySelector('.fullscreen-overlay');
+        const fullscreenImg = overlay.querySelector('.fullscreen-image');
+        fullscreenImg.src = imgSrc;
+        overlay.style.display = 'flex';
+    }
+
+    function closeFullscreen() {
+        const overlay = document.querySelector('.fullscreen-overlay');
+        overlay.style.display = 'none';
+    }
+</script>
+</body>
+</html>
